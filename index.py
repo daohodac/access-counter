@@ -18,7 +18,7 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
        self.send_header('Location', new_path)
        self.end_headers()
 
-PORT = 8000
+PORT = os.environ['PORT']
 handler = SocketServer.TCPServer(("", PORT), myHandler)
-print "serving at port 8000"
+print "serving at port ", PORT
 handler.serve_forever()
