@@ -19,6 +19,6 @@ class myHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
        self.end_headers()
 
 PORT = os.environ['PORT']
-handler = SocketServer.TCPServer(("", PORT), myHandler)
-print "serving at port ", PORT
+handler = SocketServer.TCPServer(("", int(PORT)), myHandler)
+print "serving at port "+ PORT
 handler.serve_forever()
